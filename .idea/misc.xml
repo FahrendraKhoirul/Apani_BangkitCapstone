@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/background_fill_secondary.xml" value="0.1075" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/ic_back.xml" value="0.1075" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/ic_home.xml" value="0.1075" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/textfield_outline_neutral.xml" value="0.1075" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_splash.xml" value="0.25" />
       </map>
     </option>
   </component>
