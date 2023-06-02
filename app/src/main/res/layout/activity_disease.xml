@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.disease.DiseaseActivity">
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/icon_back"
+        android:padding="16dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_disease_crop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_dissease"
+        android:contentDescription="@string/image_disease" />
+
+    <TextView
+        android:id="@+id/tv_title_disease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/detect_disease_title"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nunito_medium"
+        app:layout_constraintEnd_toEndOf="@+id/iv_disease_crop"
+        app:layout_constraintStart_toStartOf="@+id/iv_disease_crop"
+        app:layout_constraintTop_toBottomOf="@+id/iv_disease_crop" />
+
+    <TextView
+        android:id="@+id/tv_desc_disease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/detect_disease_description"
+        android:textSize="12sp"
+        android:textColor="@color/nt20"
+        android:fontFamily="@font/nunito_regular"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title_disease"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_disease"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_disease" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/nt50"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc_disease" />
+
+    <ImageView
+        android:id="@+id/iv_preview"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/ic_image"
+        android:contentDescription="@string/image_preview" />
+
+    <Button
+        android:id="@+id/btn_check_disease"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_fill_primary"
+        android:fontFamily="@font/nunito_medium"
+        android:text="@string/detect_disease"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_preview" />
+
+    <TextView
+        android:id="@+id/tv_detect_disease_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/detect_disease_result"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_check_disease" />
+
+    <TextView
+        android:id="@+id/tv_detect_disease_result_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/recommendation_result_description"
+        android:textColor="@color/black"
+        android:fontFamily="@font/nunito_regular"
+        android:lineSpacingExtra="8dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_detect_disease_result"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detect_disease_result" />
+
+    <TextView
+        android:id="@+id/tv_detect_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/detect_result"
+        android:textColor="@color/pr40"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_detect_disease_result_description"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detect_disease_result_description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

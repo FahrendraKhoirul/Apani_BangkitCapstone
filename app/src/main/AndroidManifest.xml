@@ -14,13 +14,40 @@
         android:theme="@style/Theme.Apani"
         tools:targetApi="31">
         <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.project.detail.DetailProjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.project.add.AddProjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.fertilizer.result.FertilizerResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.fertilizer.FertilizerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.crops.CropsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.disease.DiseaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.project.list.ProjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.article.detail.DetailArticleActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.landing.LandingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.article.ArticleActivity"
+            android:name=".ui.article.list.ArticleActivity"
             android:exported="false" />
         <activity
             android:name=".ui.register.RegisterActivity"
@@ -33,7 +60,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
