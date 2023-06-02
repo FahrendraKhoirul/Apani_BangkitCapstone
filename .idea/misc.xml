@@ -5,10 +5,21 @@
       <map>
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/background_fill_secondary.xml" value="0.1075" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/ic_back.xml" value="0.1075" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1015" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/ic_close.xml" value="0.136" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/ic_home.xml" value="0.1075" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/textfield_outline_neutral.xml" value="0.1075" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/textfield_outline_primary.xml" value="0.264" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/drawable/textfield_outline_secondary.xml" value="0.1905" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_article.xml" value="0.4" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_landing.xml" value="0.2" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/activity_splash.xml" value="0.152" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/layout/item_article.xml" value="0.25" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani/app/src/main/res/menu/bottom_nav.xml" value="0.25" />
       </map>
     </option>
   </component>
