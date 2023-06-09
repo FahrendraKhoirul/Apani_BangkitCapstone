@@ -125,7 +125,8 @@
         android:fontFamily="@font/nunito_bold"
         android:text="@string/detect_result"
         android:textColor="@color/pr40"
-        android:textSize="14sp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_detect_disease_result_description"
         app:layout_constraintTop_toBottomOf="@+id/tv_detect_disease_result_description" />
 
