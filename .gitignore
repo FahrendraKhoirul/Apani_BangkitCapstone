@@ -1,3 +1,4 @@
+node_modules/
 .env
 http-status-code.md
 sequelize-find-method.md
