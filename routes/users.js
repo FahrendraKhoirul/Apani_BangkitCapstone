@@ -46,11 +46,6 @@ router.post('/register', async (req,res) =>{
     res.status(201).json(user);
 });
 
-// router.get('/', verifyUser, (req, res) => {
-//     const oldCookieToken = req.cookies.token;
-
-
-// })
 //Login User Account
 router.post('/login', async (req,res) => {
     const {email, password} = req.body;
