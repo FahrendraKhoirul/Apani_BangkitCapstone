@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
           }
     },{ 
-        tableName : 'Users',
+        tableName : 'users',
         timezone: '+07:00' // Set waktu ke GMT+7
     });
 
