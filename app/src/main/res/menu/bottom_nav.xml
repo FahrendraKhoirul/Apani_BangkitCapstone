@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_project"
         android:icon="@drawable/ic_project"
-        android:title="@string/project" />
+        android:title="@string/project"/>
     <item
         android:id="@+id/action_article"
         android:icon="@drawable/ic_article"
@@ -14,5 +14,5 @@
     <item
         android:id="@+id/action_profile"
         android:icon="@drawable/ic_profile"
-        android:title="@string/profile" />
+        android:title="@string/profile"/>
 </menu>

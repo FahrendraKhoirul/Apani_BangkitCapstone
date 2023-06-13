@@ -92,7 +92,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_detail_artcile"
+                    android:id="@+id/tv_detail_article"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nunito_regular"

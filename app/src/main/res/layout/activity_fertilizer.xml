@@ -6,15 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".ui.fertilizer.FertilizerActivity">
 
-    <ImageView
-        android:id="@+id/ic_back"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutIcon"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/icon_back"
-        android:padding="16dp"
-        android:src="@drawable/ic_back"
+        android:layout_weight="1"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/icon_back"
+            android:padding="16dp"
+            android:src="@drawable/ic_back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_your_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:text="@string/your_location"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/location"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -28,7 +63,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_back">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutIcon">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -94,37 +129,6 @@
                 android:textColor="@color/black" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_weight="2"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_your_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/nunito_bold"
-                android:text="@string/location"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/tv_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_regular"
-                android:paddingStart="16dp"
-                android:paddingTop="16dp"
-                android:paddingEnd="16dp"
-                android:text="@string/your_location"
-                android:textAlignment="center"
-                android:textColor="@color/black" />
-        </LinearLayout>
     </LinearLayout>
 
     <TextView

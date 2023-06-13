@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Apani</string>
     <string name="welcome">Selamat Datang!</string>
     <string name="desc_landing">Masuk aplikasi untuk menikmati fitur-fitur menarik yang disediakan!</string>
@@ -20,7 +20,7 @@
     <string name="article">Artikel</string>
     <string name="article_title">Judul Artikel</string>
     <string name="writer">Penulis</string>
-    <string name="hello_user">Halo, Bambang Aji</string>
+    <string name="hello_user">Halo, Selamat Pagi</string>
     <string name="today_date">Senin, 21 Mei 2023</string>
     <string name="temperature">12°C</string>
     <string name="feature">Fitur</string>
@@ -58,7 +58,7 @@
     <string name="detect_disease_result_description">Berikut adalah hasil deteksi kami terhadap kondisi tanaman Anda. Tanaman Anda dalam keadaan</string>
     <string name="detect_result">SEHAT</string>
     <string name="your_location">Lokasimu</string>
-    <string name="location">Malang</string>
+    <string name="location">Jakarta</string>
     <string name="temperature_value">20.8</string>
     <string name="temperature_title">Temp</string>
     <string name="humidity_value">82.0</string>
@@ -87,4 +87,11 @@
     <string name="logout">Keluar</string>
     <string name="add_project_title">Tambah Project</string>
     <string name="add_project">Tambahkan</string>
+    <string name="permission_is_not_allowed">Tidak mendapatkan izin mengakses lokasi</string>
+    <string name="input_first">Masukkan data terlebih dahulu</string>
+    <string name="input_correctly">Masukkan data dengan benar</string>
+    <string name="sure">Apakah Kamu Yakin?</string>
+    <string name="yes">Ya</string>
+    <string name="register_failed">Daftar Gagal</string>
+    <string name="register_success">Daftar Berhasil</string>
 </resources>

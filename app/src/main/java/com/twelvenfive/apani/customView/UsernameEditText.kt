@@ -6,13 +6,14 @@ import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.Patterns
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.twelvenfive.apani.R
 
-class PasswordEditText : AppCompatEditText, View.OnTouchListener {
+class UsernameEditText : AppCompatEditText, View.OnTouchListener{
     private lateinit var clearButtonImage: Drawable
 
     constructor(context: Context): super(context){
@@ -42,17 +43,18 @@ class PasswordEditText : AppCompatEditText, View.OnTouchListener {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.toString().isNotEmpty()){
                     showClearButton()
-                    if(s.length < 7){
-                        error = "Password must not less than 7 characters"
+                    if(s.length < 5){
+                        error = "Username must not less than 5 characters"
                         setBackgroundResource(R.drawable.textfield_outline_error)
                     }
-                    else if(s.length >= 7){
+                    else if(s.length >= 5){
                         error = null
                         setBackgroundResource(R.drawable.textfield_outline_primary)
                     }
                 } else hideClearButton()
             }
             override fun afterTextChanged(s: Editable) {
+
             }
         })
     }
