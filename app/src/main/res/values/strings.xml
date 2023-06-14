@@ -56,7 +56,7 @@
     <string name="detect_disease_button">Periksa</string>
     <string name="detect_disease_result">Hasil deteksi</string>
     <string name="detect_disease_result_description">Berikut adalah hasil deteksi kami terhadap kondisi tanaman Anda. Tanaman Anda dalam keadaan</string>
-    <string name="detect_result">SEHAT</string>
+    <string name="detect_result"></string>
     <string name="your_location">Lokasimu</string>
     <string name="location">Jakarta</string>
     <string name="temperature_value">20.8</string>
