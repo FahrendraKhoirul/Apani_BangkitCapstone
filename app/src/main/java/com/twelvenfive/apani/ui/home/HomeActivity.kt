@@ -8,6 +8,8 @@ import android.location.Geocoder
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -25,11 +27,14 @@ import com.twelvenfive.apani.ui.login.LoginActivity
 import com.twelvenfive.apani.ui.profile.ProfileActivity
 import com.twelvenfive.apani.ui.project.add.AddProjectActivity
 import com.twelvenfive.apani.ui.project.list.ProjectActivity
+import java.text.SimpleDateFormat
 import java.util.*
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var buttonBackPressedOnce = false
+    private val calendar = Calendar.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -49,8 +54,30 @@ class HomeActivity : AppCompatActivity() {
             requestLocationPermission()
         }
 
+        showtime()
+        showtoday()
         bottomNavigation()
         cardViewClicked()
+    }
+
+    private fun showtoday() {
+        val dateFormat = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("id", "ID"))
+        val formattedDate = dateFormat.format(calendar.time)
+        binding.tvDate.text = formattedDate
+    }
+
+    private fun showtime() {
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+
+        val greeting: String = when(hour) {
+            in 0..11 -> getString(R.string.good_morning)
+            in 12..14 -> getString(R.string.good_afternoon)
+            in 15..18 -> getString(R.string.good_afternoon_sore)
+            else -> getString(R.string.good_evening)
+        }
+
+        val greetingMsg = getString(R.string.hello_user, greeting)
+        binding.tvHaloUser.text = greetingMsg
     }
 
     private fun hasLocationPermission(): Boolean {
@@ -152,8 +179,15 @@ class HomeActivity : AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        super.onBackPressed()
-        finishAffinity()
+        if (buttonBackPressedOnce) {
+            super.onBackPressed()
+        } else {
+            buttonBackPressedOnce = true
+            Toast.makeText(this, getString(R.string.press_back_again_to_exit), Toast.LENGTH_SHORT).show()
+            Handler(Looper.getMainLooper()).postDelayed({
+                buttonBackPressedOnce = false
+            }, 2000) // Delay to reset the flag after 2 seconds
+        }
     }
 
     companion object{

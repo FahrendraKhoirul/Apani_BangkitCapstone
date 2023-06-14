@@ -20,7 +20,7 @@
     <string name="article">Artikel</string>
     <string name="article_title">Judul Artikel</string>
     <string name="writer">Penulis</string>
-    <string name="hello_user">Halo, Selamat Pagi</string>
+    <string name="hello_user">Halo, %s</string>
     <string name="today_date">Senin, 21 Mei 2023</string>
     <string name="temperature">12°C</string>
     <string name="feature">Fitur</string>
@@ -94,4 +94,10 @@
     <string name="yes">Ya</string>
     <string name="register_failed">Daftar Gagal</string>
     <string name="register_success">Daftar Berhasil</string>
+    <string name="no">Tidak</string>
+    <string name="press_back_again_to_exit">Tekan tombol kembali lagi untuk keluar</string>
+    <string name="good_morning">Selamat Pagi</string>
+    <string name="good_afternoon">Selamat Siang</string>
+    <string name="good_afternoon_sore">Selamat Sore</string>
+    <string name="good_evening">Selamat Malam</string>
 </resources>

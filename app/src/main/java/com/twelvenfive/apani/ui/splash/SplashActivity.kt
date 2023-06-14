@@ -29,7 +29,7 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvLogo.animate().alpha(1f).duration = SPLASH_TIME
+        binding.ivLogo.animate().alpha(1f).duration = SPLASH_TIME
 
         preferences = Preference(this)
         loginResult = preferences.getToken()
@@ -37,6 +37,7 @@ class SplashActivity : AppCompatActivity() {
             delay(SPLASH_TIME)
             val intent = Intent(this@SplashActivity, HomeActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.transition.fade_in, R.transition.fade_out)
             finish()
         }
     }

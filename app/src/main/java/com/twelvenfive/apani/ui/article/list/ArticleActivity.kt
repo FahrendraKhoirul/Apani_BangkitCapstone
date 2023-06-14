@@ -3,6 +3,8 @@ package com.twelvenfive.apani.ui.article.list
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -21,6 +23,7 @@ class ArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityArticleBinding
     private lateinit var viewModelFactory: ViewModelFactory
     private val articleViewModel: ArticleViewModel by viewModels{ viewModelFactory}
+    private var buttonBackPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +101,19 @@ class ArticleActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.VISIBLE
         }else{
             binding.progressBar.visibility = View.GONE
+        }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (buttonBackPressedOnce) {
+            super.onBackPressed()
+        } else {
+            buttonBackPressedOnce = true
+            Toast.makeText(this, getString(R.string.press_back_again_to_exit), Toast.LENGTH_SHORT).show()
+            Handler(Looper.getMainLooper()).postDelayed({
+                buttonBackPressedOnce = false
+            }, 2000) // Delay to reset the flag after 2 seconds
         }
     }
 }

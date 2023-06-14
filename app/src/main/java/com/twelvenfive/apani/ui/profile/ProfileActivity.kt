@@ -3,6 +3,8 @@ package com.twelvenfive.apani.ui.profile
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -23,6 +25,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var viewModelFactory: ViewModelFactory
     private val profileViewModel: ProfileViewModel by viewModels { viewModelFactory }
+    private var buttonBackPressedOnce = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -34,23 +37,6 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         bottomNavigation()
-
-        /*profileViewModel.setToken().observe(this){token ->
-            if (token != null){
-                when(token){
-                    is com.twelvenfive.apani.network.data.Result.Loading -> {
-
-                    }
-                    is com.twelvenfive.apani.network.data.Result.Error -> {
-                        Toast.makeText(this, "Authentikasi Gagal", Toast.LENGTH_SHORT).show()
-                    }
-                    is com.twelvenfive.apani.network.data.Result.Success -> {
-                        saveData(token.data)
-                        Toast.makeText(this, "Authentikasi Berhasil", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }*/
     }
 
     private fun logout() {
@@ -61,7 +47,7 @@ class ProfileActivity : AppCompatActivity() {
             clearData()
             Toast.makeText(this, "Keluar Berhasil", Toast.LENGTH_SHORT).show()
         }
-        dialog.setNegativeButton("No") { _, _ ->
+        dialog.setNegativeButton(getString(R.string.no)) { _, _ ->
             Toast.makeText(this, "Keluar Gagal", Toast.LENGTH_SHORT).show()
         }
         dialog.show()
@@ -72,13 +58,6 @@ class ProfileActivity : AppCompatActivity() {
         preference.clearToken()
         startActivity(Intent(this, LoginActivity::class.java))
     }
-
-    /*private fun saveData(data: TokenResponse) {
-        val preference = Preference(this)
-        val tokenRes = data.data
-        val tokenResponse = Data(password = tokenRes.password, email = tokenRes.email)
-        preference.saveData(tokenResponse)
-    }*/
 
     private fun bottomNavigation() {
         binding.bottomNavigation.selectedItemId = R.id.action_profile
@@ -110,7 +89,14 @@ class ProfileActivity : AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        super.onBackPressed()
-        finishAffinity()
+        if (buttonBackPressedOnce) {
+            super.onBackPressed()
+        } else {
+            buttonBackPressedOnce = true
+            Toast.makeText(this, getString(R.string.press_back_again_to_exit), Toast.LENGTH_SHORT).show()
+            Handler(Looper.getMainLooper()).postDelayed({
+                buttonBackPressedOnce = false
+            }, 2000) // Delay to reset the flag after 2 seconds
+        }
     }
 }

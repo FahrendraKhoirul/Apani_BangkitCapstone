@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="300dp"
+        android:layout_width="400dp"
         android:layout_height="300dp"
         android:layout_marginTop="70dp"
-        android:src="@drawable/image_pak_tani_300"
+        android:src="@drawable/image_logo"
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
