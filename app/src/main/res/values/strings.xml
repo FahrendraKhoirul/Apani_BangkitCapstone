@@ -100,4 +100,5 @@
     <string name="good_afternoon">Selamat Siang</string>
     <string name="good_afternoon_sore">Selamat Sore</string>
     <string name="good_evening">Selamat Malam</string>
+    <string name="generate_crop">Generate Tanaman</string>
 </resources>

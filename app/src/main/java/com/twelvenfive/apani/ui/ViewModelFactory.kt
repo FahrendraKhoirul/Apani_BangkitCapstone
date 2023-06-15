@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.twelvenfive.apani.network.data.DataRepository
 import com.twelvenfive.apani.network.data.Injection
 import com.twelvenfive.apani.ui.article.list.ArticleViewModel
+import com.twelvenfive.apani.ui.crops.CropViewModel
 import com.twelvenfive.apani.ui.home.HomeViewModel
 import com.twelvenfive.apani.ui.login.LoginViewModel
-import com.twelvenfive.apani.ui.profile.ProfileViewModel
 import com.twelvenfive.apani.ui.register.RegisterViewModel
 
 class ViewModelFactory private constructor(private val dataRepository: DataRepository) :
@@ -33,8 +33,8 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
             return HomeViewModel(dataRepository) as T
         }
 
-        if (modelClass.isAssignableFrom(ProfileViewModel::class.java)){
-            return ProfileViewModel(dataRepository) as T
+        if (modelClass.isAssignableFrom(CropViewModel::class.java)){
+            return CropViewModel(dataRepository) as T
         }
 
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

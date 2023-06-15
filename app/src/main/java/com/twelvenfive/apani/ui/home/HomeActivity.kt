@@ -10,20 +10,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.twelvenfive.apani.R
 import com.twelvenfive.apani.databinding.ActivityHomeBinding
+import com.twelvenfive.apani.network.data.LocationData
 import com.twelvenfive.apani.network.data.Preference
+import com.twelvenfive.apani.network.response.Current
+import com.twelvenfive.apani.ui.ViewModelFactory
 import com.twelvenfive.apani.ui.article.list.ArticleActivity
 import com.twelvenfive.apani.ui.crops.CropsActivity
 import com.twelvenfive.apani.ui.disease.DiseaseActivity
 import com.twelvenfive.apani.ui.fertilizer.FertilizerActivity
 import com.twelvenfive.apani.ui.landing.LandingActivity
-import com.twelvenfive.apani.ui.login.LoginActivity
 import com.twelvenfive.apani.ui.profile.ProfileActivity
 import com.twelvenfive.apani.ui.project.add.AddProjectActivity
 import com.twelvenfive.apani.ui.project.list.ProjectActivity
@@ -35,13 +39,17 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var buttonBackPressedOnce = false
     private val calendar = Calendar.getInstance()
+    private lateinit var viewModelFactory: ViewModelFactory
+    private val homeViewModel: HomeViewModel by viewModels { viewModelFactory }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModelFactory = ViewModelFactory.getInstance(binding.root.context)
 
         val preference = Preference(this)
-        val token = preference.getToken().token
+        val token = preference.getData().token
         if (token.isNullOrEmpty()){
             val intent = Intent(this, LandingActivity::class.java)
             startActivity(intent)
@@ -58,6 +66,36 @@ class HomeActivity : AppCompatActivity() {
         showtoday()
         bottomNavigation()
         cardViewClicked()
+
+        homeViewModel.getWeather().observe(this){result->
+            when (result) {
+                is com.twelvenfive.apani.network.data.Result.Loading -> {
+                    showLoading(true)
+                }
+                is com.twelvenfive.apani.network.data.Result.Error -> {
+                    showLoading(false)
+                    Toast.makeText(this, "Gagal Memuat Cuaca", Toast.LENGTH_SHORT).show()
+                }
+                is com.twelvenfive.apani.network.data.Result.Success -> {
+                    showLoading(false)
+                    val weather = result.data
+                    showWeather(weather.current as Current)
+                    Toast.makeText(this, "Berhasil Memuat Cuaca", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun showWeather(weather: Current){
+        binding.tvTemperature.text = "${weather.tempC.toString()}C"
+    }
+
+    private fun showLoading(isLoading: Boolean){
+        if (isLoading){
+            binding.progressBar.visibility = View.VISIBLE
+        }else{
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
     private fun showtoday() {
@@ -108,6 +146,8 @@ class HomeActivity : AppCompatActivity() {
                 val cityName = addresses?.get(0)?.locality
 
                 binding.tvLocation.text = cityName
+                val preference = Preference(this)
+                preference.saveLocation(LocationData("${location.latitude},${location.longitude}", cityName))
             }
         }
     }

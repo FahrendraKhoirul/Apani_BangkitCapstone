@@ -6,7 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiConfig {
+class WeatherApiConfig {
     companion object{
         private val loggingInterceptor = if(BuildConfig.DEBUG) {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -14,17 +14,17 @@ class ApiConfig {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
         }
 
-        private val client = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()
-
-        fun getApiServiceCC(): ApiService{
-            val retrofit = Retrofit.Builder()
-                .baseUrl("https://apani-backend-api-dot-apani-capstone-project-389507.et.r.appspot.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
+        fun getWeatherApiService(): WeatherApiService{
+            val weatherClient = OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
                 .build()
-            return retrofit.create(ApiService::class.java)
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://weatherapi-com.p.rapidapi.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(weatherClient)
+                .build()
+            return retrofit.create(WeatherApiService::class.java)
         }
     }
 }
