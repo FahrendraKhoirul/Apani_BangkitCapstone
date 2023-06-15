@@ -26,7 +26,6 @@ import com.twelvenfive.apani.ui.ViewModelFactory
 import com.twelvenfive.apani.ui.article.list.ArticleActivity
 import com.twelvenfive.apani.ui.crops.CropsActivity
 import com.twelvenfive.apani.ui.disease.DiseaseActivity
-import com.twelvenfive.apani.ui.fertilizer.FertilizerActivity
 import com.twelvenfive.apani.ui.landing.LandingActivity
 import com.twelvenfive.apani.ui.profile.ProfileActivity
 import com.twelvenfive.apani.ui.project.add.AddProjectActivity
@@ -203,11 +202,6 @@ class HomeActivity : AppCompatActivity() {
 
         binding.cvRecommended.setOnClickListener {
             startActivity(Intent(this, CropsActivity::class.java))
-            overridePendingTransition(0, 0)
-        }
-
-        binding.cvFertilizer.setOnClickListener {
-            startActivity(Intent(this, FertilizerActivity::class.java))
             overridePendingTransition(0, 0)
         }
 

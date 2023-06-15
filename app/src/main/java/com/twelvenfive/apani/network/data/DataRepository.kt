@@ -52,21 +52,6 @@ class DataRepository(private val apiService: ApiService, private val weatherApiS
         }
     }
 
-//    fun getUser(): LiveData<Result<TokenResponse>> = liveData {
-//        emit(Result.Loading)
-//        val token = preference.getToken().token
-//        try {
-//            val response = apiService.verifyToken(token as String)
-//            if (response.data.email.isNotEmpty()) {
-//                emit(Result.Success(response))
-//            } else {
-//                emit(Result.Error(response.message))
-//            }
-//        } catch (e: Exception) {
-//            emit(Result.Error(e.message.toString()))
-//        }
-//    }
-
     fun getCurrentWeather(): LiveData<Result<WeatherResponse>> = liveData {
         emit(Result.Loading)
         val location = preference.getLocation()
