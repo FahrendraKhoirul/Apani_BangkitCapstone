@@ -37,30 +37,15 @@ class DataRepository(private val apiService: ApiService, private val preference:
         emit(Result.Loading)
         try {
             val response = apiService.login(email, pass)
-            if (response.token?.isNotEmpty() == true){
-                emit(Result.Success(response))
-            }else{
+            if (response.loginResult?.email.isNullOrEmpty()){
                 emit(Result.Error(response.message!!))
+            }else{
+                emit(Result.Success(response))
             }
         } catch (e: Exception) {
             emit(Result.Error(e.message.toString()))
         }
     }
-
-    /*fun setToken(): LiveData<Result<TokenResponse>> = liveData{
-        emit(Result.Loading)
-        val token = preference.getToken()
-        try {
-            val response = apiService.verifyToken(token)
-            if (response.data.email.isNotEmpty()){
-                emit(Result.Success(response))
-            }else{
-                emit(Result.Error(response.message))
-            }
-        } catch (e: Exception) {
-            emit(Result.Error(e.message.toString()))
-        }
-    }*/
 
 
     fun getAllArticles(): LiveData<Result<List<ArticleListItem>>> = liveData {

@@ -83,7 +83,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_fill_primary"
         android:fontFamily="@font/nunito_medium"
-        android:text="@string/detect_disease"
+        android:text="@string/detect_disease_button"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

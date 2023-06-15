@@ -21,9 +21,7 @@ import com.twelvenfive.apani.network.data.Preference
 import com.twelvenfive.apani.ui.article.list.ArticleActivity
 import com.twelvenfive.apani.ui.crops.CropsActivity
 import com.twelvenfive.apani.ui.disease.DiseaseActivity
-import com.twelvenfive.apani.ui.fertilizer.FertilizerActivity
 import com.twelvenfive.apani.ui.landing.LandingActivity
-import com.twelvenfive.apani.ui.login.LoginActivity
 import com.twelvenfive.apani.ui.profile.ProfileActivity
 import com.twelvenfive.apani.ui.project.add.AddProjectActivity
 import com.twelvenfive.apani.ui.project.list.ProjectActivity
@@ -41,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val preference = Preference(this)
-        val token = preference.getToken().token
+        val token = preference.getData().token
         if (token.isNullOrEmpty()){
             val intent = Intent(this, LandingActivity::class.java)
             startActivity(intent)
@@ -163,11 +161,6 @@ class HomeActivity : AppCompatActivity() {
 
         binding.cvRecommended.setOnClickListener {
             startActivity(Intent(this, CropsActivity::class.java))
-            overridePendingTransition(0, 0)
-        }
-
-        binding.cvFertilizer.setOnClickListener {
-            startActivity(Intent(this, FertilizerActivity::class.java))
             overridePendingTransition(0, 0)
         }
 

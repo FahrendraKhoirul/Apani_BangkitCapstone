@@ -11,6 +11,7 @@ import com.twelvenfive.apani.databinding.ActivityLoginBinding
 import com.twelvenfive.apani.network.data.Preference
 import com.twelvenfive.apani.network.data.Result
 import com.twelvenfive.apani.network.response.LoginResponse
+import com.twelvenfive.apani.network.response.LoginResult
 import com.twelvenfive.apani.ui.ViewModelFactory
 import com.twelvenfive.apani.ui.home.HomeActivity
 import com.twelvenfive.apani.ui.register.RegisterActivity
@@ -69,10 +70,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun saveData(data: LoginResponse) {
         val preference = Preference(this)
-        val loginToken = data.token
-        val loginMsg = data.message
-        val loginResult = LoginResponse(message = loginMsg, token = loginToken)
-        preference.saveToken(loginResult)
+        val loginRes = data.loginResult
+        val loginResult = LoginResult(email = loginRes?.email, username = loginRes?.username, token = loginRes?.token)
+        preference.setData(loginResult)
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }
