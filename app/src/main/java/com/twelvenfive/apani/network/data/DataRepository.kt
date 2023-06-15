@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import com.twelvenfive.apani.R
 import com.twelvenfive.apani.network.api.ApiService
 import com.twelvenfive.apani.network.api.WeatherApiService
 import com.twelvenfive.apani.network.response.*
@@ -104,7 +105,44 @@ class DataRepository(private val apiService: ApiService, private val weatherApiS
                 emit(Result.Error("API call failed with code ${response.code()}"))
             }
         } catch (e: Exception) {
-            Log.d("StoryRepository", "listStory: ${e.message.toString()}")
+            Log.d("DataRepository", "listData: ${e.message.toString()}")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getAllProjects(): LiveData<Result<List<ListProjectItem>>> = liveData {
+        emit(Result.Loading)
+        val email = preference.getData().email
+        Log.d("TAG", preference.getData().email.toString())
+        try {
+            val response = apiService.getAllProjects(email = email.toString())
+            if (response.isSuccessful){
+                val projects = response.body()?.listProject
+                if (projects.isNullOrEmpty()){
+                    emit(Result.Error("No Projects Found"))
+                }else{
+                    emit(Result.Success(projects))
+                }
+            }
+            else {
+                emit(Result.Error("API call failed with code ${response.code()}"))
+            }
+        }catch (e: Exception) {
+            Log.d("DataRepository", "listData: ${e.message.toString()}")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun addProject(email: String, projectName: String, desc: String, date: String, note: String, status: Boolean): LiveData<Result<AddProjectResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.addProject(email, projectName, desc, date, note, status)
+            if (response.projectName.isNullOrEmpty()){
+                emit(Result.Error("Project Cannot be Created"))
+            }else{
+                emit(Result.Success(response))
+            }
+        } catch (e: Exception) {
             emit(Result.Error(e.message.toString()))
         }
     }

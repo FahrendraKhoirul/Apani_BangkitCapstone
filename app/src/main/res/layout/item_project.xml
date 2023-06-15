@@ -52,12 +52,6 @@
                     android:textColor="@color/nt30"
                     android:fontFamily="@font/nunito_regular"/>
             </LinearLayout>
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

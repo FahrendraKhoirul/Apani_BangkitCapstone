@@ -16,6 +16,8 @@ import com.twelvenfive.apani.R
 import com.twelvenfive.apani.databinding.ActivityDetailArticleBinding
 import com.twelvenfive.apani.databinding.DialogImageViewBinding
 import com.twelvenfive.apani.network.response.ArticleListItem
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailArticleBinding
@@ -63,7 +65,16 @@ class DetailArticleActivity : AppCompatActivity() {
         binding.apply {
             tvTitleArticle.text = data?.title
             tvAuthorArticle.text = data?.author
-            tvDateArticle.text = data?.date
+            val dateString = data?.date
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+            try {
+                val date = inputFormat.parse(dateString)
+                val output = SimpleDateFormat("yyyy-MM-dd", Locale("id", "ID"))
+                val formattedDate = output.format(date)
+                tvDateArticle.text = formattedDate
+            }catch (e: java.lang.Exception){
+                e.printStackTrace()
+            }
             tvDetailArticle.text = data?.article
             if (data?.imgUrl.isNullOrEmpty()){
                 binding.ivCoverArticle.setImageDrawable(ContextCompat.getDrawable(this@DetailArticleActivity, R.drawable.image_cover))

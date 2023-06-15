@@ -102,14 +102,16 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/nunito_regular"
         android:background="@drawable/textfield_outline_neutral"
-        android:hint="@string/description_project"
+        android:hint="@string/date_project"
         android:minHeight="48dp"
         android:padding="12dp"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_date_project"
         app:layout_constraintTop_toBottomOf="@+id/tv_date_project"
-        tools:ignore="VisualLintTextFieldSize"/>
+        tools:ignore="VisualLintTextFieldSize"
+        android:focusable="false"
+        android:onClick="showDatePicker"/>
 
     <TextView
         android:id="@+id/tv_note_project"
@@ -158,5 +160,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_note_project" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/pr40"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

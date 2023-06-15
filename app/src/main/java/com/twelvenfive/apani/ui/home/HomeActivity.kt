@@ -81,6 +81,7 @@ class HomeActivity : AppCompatActivity() {
                     showWeather(weather.current as Current)
                     Toast.makeText(this, "Berhasil Memuat Cuaca", Toast.LENGTH_SHORT).show()
                 }
+                else -> {}
             }
         }
     }

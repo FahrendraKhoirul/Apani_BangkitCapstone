@@ -28,7 +28,7 @@ class Preference(context: Context) {
         val username = preferences.getString(VALUE_USERNAME, null)
         val email = preferences.getString(VALUE_EMAIL, null)
         val token = preferences.getString(KEY_TOKEN, null)
-        return LoginResult(username, email, token)
+        return LoginResult(email, username, token)
     }
 
     fun clearToken() {

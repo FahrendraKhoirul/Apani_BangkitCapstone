@@ -62,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
                             saveData(login.data)
                             Toast.makeText(this, "Masuk Berhasil", Toast.LENGTH_SHORT).show()
                         }
+                        else -> {}
                     }
                 }
             }

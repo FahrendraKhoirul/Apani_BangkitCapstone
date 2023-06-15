@@ -9,6 +9,8 @@ import com.twelvenfive.apani.ui.article.list.ArticleViewModel
 import com.twelvenfive.apani.ui.crops.CropViewModel
 import com.twelvenfive.apani.ui.home.HomeViewModel
 import com.twelvenfive.apani.ui.login.LoginViewModel
+import com.twelvenfive.apani.ui.project.add.AddProjectViewModel
+import com.twelvenfive.apani.ui.project.list.ProjectViewModel
 import com.twelvenfive.apani.ui.register.RegisterViewModel
 
 class ViewModelFactory private constructor(private val dataRepository: DataRepository) :
@@ -35,6 +37,14 @@ class ViewModelFactory private constructor(private val dataRepository: DataRepos
 
         if (modelClass.isAssignableFrom(CropViewModel::class.java)){
             return CropViewModel(dataRepository) as T
+        }
+
+        if (modelClass.isAssignableFrom(ProjectViewModel::class.java)){
+            return ProjectViewModel(dataRepository) as T
+        }
+
+        if (modelClass.isAssignableFrom(AddProjectViewModel::class.java)){
+            return AddProjectViewModel(dataRepository) as T
         }
 
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

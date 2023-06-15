@@ -5,38 +5,43 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.twelvenfive.apani.R
 import com.twelvenfive.apani.databinding.ActivityProfileBinding
 import com.twelvenfive.apani.network.data.Preference
+import com.twelvenfive.apani.ui.ViewModelFactory
 import com.twelvenfive.apani.ui.article.list.ArticleActivity
 import com.twelvenfive.apani.ui.home.HomeActivity
 import com.twelvenfive.apani.ui.login.LoginActivity
+import com.twelvenfive.apani.ui.login.LoginViewModel
 import com.twelvenfive.apani.ui.project.list.ProjectActivity
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
-
+    private lateinit var viewModelFactory: ViewModelFactory
+    private val profileViewModel: ProfileViewModel by viewModels { viewModelFactory }
     private var buttonBackPressedOnce = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModelFactory = ViewModelFactory.getInstance(binding.root.context)
 
         binding.icLogout.setOnClickListener {
             logout()
         }
 
+        getUser()
+        bottomNavigation()
+    }
+
+    private fun getUser() {
         val preference = Preference(this)
         binding.tvUsername.text = preference.getData().username
         binding.tvEmail.text = preference.getData().email
-        Log.d("================Username", preference.getData().username.toString())
-        Log.d("================Email", preference.getData().email.toString())
-        Log.d("================Token", preference.getData().token.toString())
-
-        bottomNavigation()
     }
 
     private fun logout() {
