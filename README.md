@@ -86,7 +86,7 @@ To use the Apani mobile application, follow these steps:
 
 # Product
 
-1. [Apani Apps](https://storage.googleapis.com/getloc-314510.appspot.com/getloc-1.0.apk)
+1. [Apani Apps]()
 
 <br>
 
