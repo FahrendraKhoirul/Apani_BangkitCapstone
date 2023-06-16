@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 import com.twelvenfive.apani.network.data.DataRepository
 
 class AddProjectViewModel(private val dataRepository: DataRepository): ViewModel() {
-    fun addProject(email: String, projectName: String, desc: String, date: String, note: String, status: Boolean) =
-        dataRepository.addProject(email, projectName, desc, date, note, status)
+    fun addProject(email: String, projectName: String, desc: String, date: String, note: String) =
+        dataRepository.addProject(email, projectName, desc, date, note)
 }

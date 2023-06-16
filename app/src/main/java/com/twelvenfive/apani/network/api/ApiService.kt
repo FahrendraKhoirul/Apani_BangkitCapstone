@@ -40,7 +40,6 @@ interface ApiService {
         @Field("project_name") project_name: String,
         @Field("description") description: String,
         @Field("date") date: String,
-        @Field("note") note: String,
-        @Field("status") status: Boolean
+        @Field("note") note: String
     ): AddProjectResponse
 }

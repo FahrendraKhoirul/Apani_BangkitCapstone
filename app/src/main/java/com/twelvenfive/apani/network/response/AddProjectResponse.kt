@@ -18,7 +18,4 @@ data class AddProjectResponse(
 
 	@field:SerializedName("email")
 	val email: String,
-
-	@field:SerializedName("status")
-	val status: Boolean,
 )

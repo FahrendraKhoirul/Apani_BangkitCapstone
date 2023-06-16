@@ -37,9 +37,6 @@ data class ListProjectItem(
 	@field:SerializedName("email")
 	val email: String,
 
-	@field:SerializedName("status")
-	val status: Boolean,
-
 	@field:SerializedName("updatedAt")
 	val updatedAt: String
 ): Parcelable

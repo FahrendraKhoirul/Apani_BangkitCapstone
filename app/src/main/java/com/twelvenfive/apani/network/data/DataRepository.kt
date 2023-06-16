@@ -133,10 +133,10 @@ class DataRepository(private val apiService: ApiService, private val weatherApiS
         }
     }
 
-    fun addProject(email: String, projectName: String, desc: String, date: String, note: String, status: Boolean): LiveData<Result<AddProjectResponse>> = liveData {
+    fun addProject(email: String, projectName: String, desc: String, date: String, note: String): LiveData<Result<AddProjectResponse>> = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.addProject(email, projectName, desc, date, note, status)
+            val response = apiService.addProject(email, projectName, desc, date, note)
             if (response.projectName.isNullOrEmpty()){
                 emit(Result.Error("Project Cannot be Created"))
             }else{

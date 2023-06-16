@@ -48,7 +48,7 @@ class AddProjectActivity : AppCompatActivity() {
         if (projectName.isEmpty() || desc.isEmpty() || date.isEmpty() || note.isEmpty()){
             Toast.makeText(this, getString(R.string.input_first), Toast.LENGTH_SHORT).show()
         }else{
-            addProjectViewModel.addProject(email.toString(), projectName, desc, date, note, status = true).observe(this){data ->
+            addProjectViewModel.addProject(email.toString(), projectName, desc, date, note).observe(this){data ->
                 if (data != null){
                     when(data){
                         is com.twelvenfive.apani.network.data.Result.Loading -> {
