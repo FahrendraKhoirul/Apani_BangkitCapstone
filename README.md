@@ -1,6 +1,4 @@
-
-
-# Apani Apps
+# Apani App
 
 Apani : Apani (Aplikasi Pak Tani) GitHub Repositories of Bangkit Academy 2023 Capstone Project from 3 learning path. Machine Learning, Mobile development, Cloud Computing from team C23-PS372.
 
