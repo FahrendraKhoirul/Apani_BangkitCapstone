@@ -6,7 +6,21 @@ Apani : Apani (Aplikasi Pak Tani) GitHub Repositories of Bangkit Academy 2023 Ca
 
 # About The Project
 
-Before traveling, usually we will make a plan in advance about the location to be visited and the time of departure. This is done to avoid problems, one of which is the distance to be traveled is farther until the time needed does not match expectations. To overcome this, our team uses the Traveling Salesman Problem method. We present GetLoc as an application that is able to recommend several tourist attractions according to the location you want to go and provide the fastest and cheapest routes in visiting these places..
+Apani is a mobile application designed specifically for farmers to assist them in various aspects of agriculture. The project aims to leverage technology to provide farmers with valuable tools and information that can enhance their productivity and decision-making processes. By utilizing machine learning, data analysis, and real-time data, Apani offers features such as crop recommendation, plant disease detection, and weather prediction.
+
+# Project Objectives
+
+The primary objectives of the Apani project are as follows:
+
+1. **Crop Recommendation**: The app provides personalized crop recommendations based on the user's geographical location. By analyzing factors such as tempereratur, air humidity, and weather prediction, Apani helps farmers make informed decisions about the most suitable crops to grow.
+
+2. **Plant Disease Detection**: Apani utilizes machine learning algorithms and image processing techniques to detect and identify plant diseases. By capturing images of affected leaf of plants, the app can provide farmers with timely and accurate diagnoses, enabling them to take appropriate measures to mitigate the spread of diseases.
+
+3. **Weather Prediction**: Apani incorporates weather data to provide farmers with accurate and localized weather forecasts. By accessing real-time weather information, farmers can plan their agricultural activities more effectively, such as irrigation scheduling, planting, and harvesting.
+
+4. **Educational Articles**: The app includes a repository of informative articles on various agricultural topics. These articles aim to educate farmers about modern farming techniques, best practices, and innovative approaches to maximize their crop yields and profitability.
+
+5. **Project Management**: Apani also offers project management capabilities, including a to-do list and note-taking functionality. Farmers can create and manage tasks, set reminders, and organize their agricultural projects more efficiently. Additionally, the note-taking feature allows farmers to jot down important information, observations, or ideas related to their farming activities.
 
 <p align="center">
 	<img src="Screenshots_DemoVideo/Apani_2Landing.jpg" width="25%"> &nbsp; &nbsp; &nbsp;
@@ -14,6 +28,7 @@ Before traveling, usually we will make a plan in advance about the location to b
 	<img src="Screenshots_DemoVideo/Apani_11PlantDisease.jpg" width="25%"> &nbsp; &nbsp; &nbsp;
 	<img src="Screenshots_DemoVideo/Apani_12Articles.jpg" width="25%">
 </p>
+
 
 # Team Members
 
@@ -59,25 +74,17 @@ In our project is divided into four branches.
   1.  Open Apani application
   2.  Register your email address
 
-<!-- # Usage
+# Usage
+To use the Apani mobile application, follow these steps:
+1. Download the APK file from the latest release available on the GitHub repository.
+2. Transfer the APK file to your Android device and install the APK.
+3. Once the app is running, you will be presented with the main screen, where you can access various features:
+    - Crop Recommendation: Click on the "Crop Recommendation" section to receive personalized crop recommendations based on your geographic location. 
+    - Plant Disease Detection: Navigate to the "Plant Disease Detection" section to identify plant diseases. Capture an image of leaf of an affected plant, and the app will use machine learning algorithms to analyze the image and provide a diagnosis.
+    - Educational Articles: Explore the "Articles" section to access a wide range of informative articles on agriculture. Read and gain knowledge about various topics related to farming techniques, best practices, and innovative approaches.
+    - Project Management: To manage your agricultural projects, utilize the this features. Create tasks, set reminders, and take notes to stay organized and keep track of important information.
+5. Enjoy using the Apani app and make the most of its features to enhance your farming experience and productivity!
 
-- How to find the nearest tourist spots
-
-  1.  Login to your accounts
-  2.  Click on search button
-  3.  Input your current location
-  4.  GetLoc will recommend you the nearest tourist spots
-
-- How to find the tourist spot based on time and cost (we make package of trip plan base on the cost and time)
-
-  1.  Login to your accounts
-  2.  Click Recommendation trip plan
-  3.  Chose the trip plan
-
-- How to get the shortest route from the several tourist destination
-
-  1.  You can choose from ‘trip plan’ there are already several tourist destination in there or you can chose tourist destination one by one and then click next
-  2.  You will direct to next page that will show you a solution of the best and shortest route -->
 
 # Product
 
@@ -90,6 +97,7 @@ In our project is divided into four branches.
 1. Machine Learning
    - [Tensorflow](https://www.tensorflow.org/)
    - [Python](https://www.python.org/)
+   - [Google Colaboration](https://colab.research.google.com/?utm_source=scs-index)
 2. Android Development
    - [Kotlin](https://kotlinlang.org/)
 3. Cloud Computing
