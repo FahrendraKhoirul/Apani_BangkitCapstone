@@ -86,7 +86,6 @@ Sample Response:
    "description": "Deskripsi project 6",
    "date": "2021-12-03 23:59:58",
    "note": "Ini adalah catatan project 6",
-   "status": true,
    "updatedAt": "2023-06-11T08:40:27.374Z",
    "createdAt": "2023-06-11T08:40:27.374Z"
 }
@@ -111,7 +110,6 @@ Sample Response:
         "description": "Deskripsi project 5",
         "date": "2021-12-03 23:59:58",
         "note": "Ini adalah catatan project 5",
-        "status": true,
         "updatedAt": "2023-06-11T08:40:27.374Z",
         "createdAt": "2023-06-11T08:40:27.374Z"
     },
@@ -122,7 +120,6 @@ Sample Response:
         "description": "Deskripsi project 6",
         "date": "2021-12-03 23:59:58",
         "note": "Ini adalah catatan project 6",
-        "status": true,
         "updatedAt": "2023-06-11T08:40:27.374Z",
         "createdAt": "2023-06-11T08:40:27.374Z"
     }
@@ -154,4 +151,49 @@ Sample Response:
 }
 ```
 
+## User Authentication
+
+### Register Account
+
+Endpoint : POST /users/register
+
+Parameter :
+- username (string, required): Name of the user.
+- email (string, required): Email of the user.
+- password (string, required): Password of the user.
+
+
+Sample Request:
+`https://apani-backend-api-dot-apani-capstone-project-389507.et.r.appspot.com/users/register`
+
+Sample Response"
+```json
+{
+    "user_id" : "1",
+    "username": "Hibban",
+    "email": "hibban@gmail.com",
+   "updatedAt": "2023-06-11T08:40:27.374Z",
+ "createdAt": "2023-06-11T08:40:27.374Z"
+}
+```
+
+### Login
+
+Endpoint: POST /users/login
+
+Parameter:
+- email (string, required): Email of the user.
+- password (string, required): Password of the user.
+
+Sample Request:
+`https://apani-backend-api-dot-apani-capstone-project-389507.et.r.appspot.com/users/login`
+
+Sample Response:
+```json
+{
+    "email": "hibban@gmail.com",
+    "username": "Hibban",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvYmFAZ21haWwuY29tIiwidXNlcm5hbWUiOiJjb2JhIGhhcHVzIiwiaWF0IjoxNjg2OTIyNDA0LCJleHAiOjE2ODc1MjcyMDR9.2o3CwIjCAwpQxlykx7iaSWRz7-473Y4fE72AsM"
+}
+```
 
