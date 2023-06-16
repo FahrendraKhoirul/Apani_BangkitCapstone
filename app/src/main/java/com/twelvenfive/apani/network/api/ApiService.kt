@@ -34,6 +34,7 @@ interface ApiService {
     ): Response<ProjectsResponse>
 
     @POST("projects/create")
+    @FormUrlEncoded
     suspend fun addProject(
         @Field("email") email: String,
         @Field("project_name") project_name: String,

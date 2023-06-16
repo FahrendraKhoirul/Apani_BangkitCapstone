@@ -9,13 +9,13 @@ import com.twelvenfive.apani.network.response.ListProjectItem
 
 class ProjectAdapter(private val projectList: List<ListProjectItem>) : RecyclerView.Adapter<ProjectAdapter.ViewHolder>() {
 
-    private lateinit var onItemClickCallback: ProjectAdapter.OnItemClickCallback
+    private lateinit var onItemClickCallback: OnItemClickCallback
 
     interface OnItemClickCallback {
         fun onItemClicked(data: ListProjectItem)
     }
 
-    fun setOnItemClickCallback(onItemClickCallback: ProjectAdapter.OnItemClickCallback) {
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 
@@ -26,12 +26,12 @@ class ProjectAdapter(private val projectList: List<ListProjectItem>) : RecyclerV
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemProjectBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ProjectAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val project = projectList[position]
         holder.binding(project)
         holder.itemView.setOnClickListener {

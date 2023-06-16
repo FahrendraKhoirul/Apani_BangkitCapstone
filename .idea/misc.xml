@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/activity_add_project.xml" value="0.25" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/activity_article.xml" value="0.1" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/activity_crops.xml" value="0.25" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/activity_disease.xml" value="0.264" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/activity_home.xml" value="0.1308876811594203" />
         <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/activity_project.xml" value="0.25" />
+        <entry key="..\:/Users/Rizha Alfianita/AndroidStudioProjects/bangkit/apani_fix/apani/app/src/main/res/layout/item_project.xml" value="0.25" />
       </map>
     </option>
   </component>

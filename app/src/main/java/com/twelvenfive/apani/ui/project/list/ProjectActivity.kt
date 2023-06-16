@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -47,6 +48,7 @@ class ProjectActivity : AppCompatActivity() {
                 is com.twelvenfive.apani.network.data.Result.Success -> {
                     showLoading(false)
                     val projects = result.data
+                    Log.d("PROJECTS ALL =======", projects.toString())
                     showList(projects)
                     Toast.makeText(this, "Berhasil Memuat Project", Toast.LENGTH_SHORT).show()
                 }
@@ -58,10 +60,10 @@ class ProjectActivity : AppCompatActivity() {
 
     private fun showList(projectList: List<ListProjectItem>) {
         val layoutManager = LinearLayoutManager(this)
-        binding.rvOngoing.layoutManager = layoutManager
+        binding.rvProject.layoutManager = layoutManager
 
         val projectAdapter = ProjectAdapter(projectList)
-        binding.rvOngoing.adapter = projectAdapter
+        binding.rvProject.adapter = projectAdapter
 
         projectAdapter.setOnItemClickCallback(object : ProjectAdapter.OnItemClickCallback{
             override fun onItemClicked(data: ListProjectItem) {
