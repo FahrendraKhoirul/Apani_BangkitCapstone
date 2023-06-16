@@ -67,7 +67,7 @@
     <string name="ph_title">PH</string>
     <string name="recommendation">Rekomendasi tanaman untukmu...</string>
     <string name="recommendation_result_description">Berikut adalah hasil rekomendasi kami terhadap lokasi dan cuaca lingkungan Anda. Tanaman yang cocok adalah</string>
-    <string name="recommendation_result">NASI</string>
+    <string name="recommendation_result"></string>
     <string name="choose_crops_type">Pilih Jenis Tanaman</string>
     <string name="choose_soil_type">Pilih Jenis Tanah</string>
     <string name="description_project_explanation">Penjelasan Deskripsi Penjelasan Deskripsi Penjelasan Deskripsi</string>
@@ -101,4 +101,6 @@
     <string name="good_afternoon_sore">Selamat Sore</string>
     <string name="good_evening">Selamat Malam</string>
     <string name="generate_crop">Generate Tanaman</string>
+    <string name="coming_soon">COMING SOON</string>
+    <string name="desc_coming_soon">Nantikan fitur terbaru kami segera!</string>
 </resources>

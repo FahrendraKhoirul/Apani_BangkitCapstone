@@ -142,7 +142,6 @@ class CropsActivity : AppCompatActivity() {
             val outputFeature0 = outputs.outputFeature0AsTensorBuffer
 
             val confidences = outputFeature0.floatArray
-            Log.d("== Crop Recom Result ==", confidences.contentToString())
             // Find the index of the class with the biggest confidence.
             var maxPos = 0
             var maxConfidence = 0f
@@ -152,9 +151,8 @@ class CropsActivity : AppCompatActivity() {
                     maxPos = i
                 }
             }
-            val classes = arrayOf("rice", "maize", "chickpea", "kidneybeans", "pigeonpeas", "mothbeans", "mungbean", "blackgram", "lentil", "pomegranate", "banana", "mango", "grapes",
-                "watermelon", "muskmelon", "apple", "orange", "papaya", "coconut", "cotton", "jute", "coffee")
-            Log.d("== Crop Recommendation Result ==", classes[maxPos])
+            val classes = arrayOf("Nasi", "Jagung", "Buncis", "Kacang Merah", "KAcang Gude", "Kacang Ngengat", "Kacang Hijau", "Gram Hitam", "Kacang-Kacangan", "Delima", "Pisang", "Mangga", "Anggur",
+                "Semangka", "Melon", "Apple", "Jeruk", "Pepaya", "Kelapa", "Kapas", "Rami", "Kopi")
             binding.tvRecommendationResult.text = classes[maxPos]
 
         }catch (e: IOException){

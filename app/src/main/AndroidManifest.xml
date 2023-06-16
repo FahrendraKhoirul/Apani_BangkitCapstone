@@ -29,12 +29,6 @@
             android:name=".ui.project.add.AddProjectActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.fertilizer.result.FertilizerResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.fertilizer.FertilizerActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.crops.CropsActivity"
             android:exported="false" />
         <activity

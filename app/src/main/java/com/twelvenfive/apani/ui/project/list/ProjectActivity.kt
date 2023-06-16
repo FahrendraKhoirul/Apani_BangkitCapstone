@@ -48,7 +48,6 @@ class ProjectActivity : AppCompatActivity() {
                 is com.twelvenfive.apani.network.data.Result.Success -> {
                     showLoading(false)
                     val projects = result.data
-                    Log.d("PROJECTS ALL =======", projects.toString())
                     showList(projects)
                     Toast.makeText(this, "Berhasil Memuat Project", Toast.LENGTH_SHORT).show()
                 }
@@ -62,7 +61,9 @@ class ProjectActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.rvProject.layoutManager = layoutManager
 
-        val projectAdapter = ProjectAdapter(projectList)
+        val sortedList = projectList.sortedByDescending { it.createdAt }
+
+        val projectAdapter = ProjectAdapter(sortedList)
         binding.rvProject.adapter = projectAdapter
 
         projectAdapter.setOnItemClickCallback(object : ProjectAdapter.OnItemClickCallback{

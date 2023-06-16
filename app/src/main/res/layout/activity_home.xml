@@ -243,6 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+                android:paddingBottom="24dp"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
                 <androidx.cardview.widget.CardView
@@ -278,7 +279,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:fontFamily="@font/nunito_semibold"
-                            android:text="@string/predict_fertilizer"
+                            android:text="@string/detect_disease"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             app:layout_constraintStart_toStartOf="parent"
@@ -290,7 +291,7 @@
                             android:layout_height="55dp"
                             android:layout_marginTop="6dp"
                             android:fontFamily="@font/nunito_regular"
-                            android:text="@string/desc_predict_fertilizer"
+                            android:text="@string/desc_detect_disease"
                             android:textColor="@color/black"
                             android:textSize="12sp"
                             app:layout_constraintStart_toStartOf="parent"
@@ -306,7 +307,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginTop="12dp"
-                    app:cardBackgroundColor="@color/sc70"
+                    app:cardBackgroundColor="@color/nt60"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="2dp"
                     app:layout_constraintEnd_toStartOf="@id/cv_disease"
@@ -322,7 +323,8 @@
                             android:id="@+id/iv_soon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/image_dissease"
+                            android:src="@drawable/image_fertilizer"
+                            android:alpha="0.5"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -332,8 +334,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:fontFamily="@font/nunito_semibold"
-                            android:text="@string/detect_disease"
-                            android:textColor="@color/black"
+                            android:text="@string/coming_soon"
+                            android:textColor="@color/nt20"
                             android:textSize="14sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/iv_soon" />
@@ -344,8 +346,8 @@
                             android:layout_height="55dp"
                             android:layout_marginTop="6dp"
                             android:fontFamily="@font/nunito_regular"
-                            android:text="@string/desc_detect_disease"
-                            android:textColor="@color/black"
+                            android:text="@string/desc_coming_soon"
+                            android:textColor="@color/nt20"
                             android:textSize="12sp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tv_soon" />

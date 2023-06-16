@@ -41,6 +41,5 @@ class ProjectAdapter(private val projectList: List<ListProjectItem>) : RecyclerV
 
     override fun getItemCount(): Int {
         return projectList.size
-        Log.d("LIST SIZE", projectList.size.toString())
     }
 }

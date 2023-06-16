@@ -43,6 +43,8 @@ class AddProjectActivity : AppCompatActivity() {
         val projectName = binding.etTitleProject.text?.trim().toString()
         val desc = binding.etDescProject.text?.trim().toString()
         val date = binding.etDateProject.text.toString()
+
+
         val note = binding.etNoteProject.text?.trim().toString()
 
         if (projectName.isEmpty() || desc.isEmpty() || date.isEmpty() || note.isEmpty()){

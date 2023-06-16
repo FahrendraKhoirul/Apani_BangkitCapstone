@@ -112,8 +112,7 @@ class DataRepository(private val apiService: ApiService, private val weatherApiS
 
     fun getAllProjects(): LiveData<Result<List<ListProjectItem>>> = liveData {
         emit(Result.Loading)
-        val email = preference.getData().email
-        Log.d("PROJECTS ==========", preference.getData().email.toString())
+        val email = preference.getData().email  
         try {
             val response = apiService.getAllProjects(email = email.toString())
             if (response.isSuccessful){
