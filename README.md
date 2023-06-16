@@ -1,4 +1,4 @@
-# Apani - Machine Learning Path
+# Apani - Machine Learning
 
 Welcome to the Machine Learning branch of Apani! 
 This branch focuses on the development of the crop recommendation and plant disease detection features using machine learning algorithms. This README provides an overview of the branch and lists the datasets used for these features.
