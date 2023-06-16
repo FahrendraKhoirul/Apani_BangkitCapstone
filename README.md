@@ -1,4 +1,4 @@
-# Apani Mobile Development
+# Apani - Android Development
 Apani Mobile Development is a comprehensive guide that outlines the roadmap and technologies used in the development of the Apani mobile application.
 
 ## App Development Roadmap
