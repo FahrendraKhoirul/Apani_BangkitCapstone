@@ -26,16 +26,7 @@ class DetailProjectActivity : AppCompatActivity() {
         binding.apply {
             tvTitleProject.text = data?.projectName
             tvDescriptionProjectExplanation.text = data?.description
-            val dateString = data?.date
-            val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
-            try {
-                val date = inputFormat.parse(dateString)
-                val output = SimpleDateFormat("yyyy-MM-dd", Locale("id", "ID"))
-                val formattedDate = output.format(date)
-                tvDateProjectDescription.text = formattedDate
-            }catch (e: java.lang.Exception){
-                e.printStackTrace()
-            }
+            tvDateProjectDescription.text = data?.date
             tvNoteProjectDescription.text = data?.note
         }
     }

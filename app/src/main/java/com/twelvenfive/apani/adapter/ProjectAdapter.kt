@@ -23,6 +23,7 @@ class ProjectAdapter(private val projectList: List<ListProjectItem>) : RecyclerV
         fun binding(project: ListProjectItem){
             binding.tvTitleProject.text = project.projectName
             binding.tvDescProject.text = project.description
+
         }
     }
 
