@@ -23,15 +23,11 @@ module.exports = {
       allowNull: false
     },
     date : {
-      type: Sequelize.DATE,
+      type: Sequelize.STRING,
       allowNull: false
     },
     note : {
       type: Sequelize.TEXT,
-      allowNull: false
-    },
-    status : {
-      type: Sequelize.BOOLEAN,
       allowNull: false
     },
     createdAt : {

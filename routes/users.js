@@ -82,7 +82,9 @@ router.post('/login', async (req,res) => {
         }
         
         if(emailOnDb && isPasswordValid) {
-            jwt.sign({email, password}, "jwt-token-key", {expiresIn: '30s'}, (err, token) => {
+            let username = emailOnDb.username;
+            let Email = emailOnDb.email;
+            jwt.sign({email, username}, "jwt-token-key", {expiresIn: '7d'}, (err, token) => {
             if(err){
                 console.log(err);
                 res.sendStatus(304);
@@ -92,7 +94,11 @@ router.post('/login', async (req,res) => {
             res.cookie('token', Token);
             res.json({
                 message: "token successfully registered",
-                token : Token
+                loginResult: {
+                    email: Email,
+                    username: username,
+                    token : Token
+                }
             })
         }); 
         }
@@ -104,64 +110,71 @@ router.post('/login', async (req,res) => {
 });
 
 async function verifyUser(req, res, next){
-    const {token} = req.headers;
+    const {token} = req.headers.authorization.split(" ")[1];
     const cookieToken = req.cookies.token;
 
-    if(token !== cookieToken){
-        return res.json({message: "You're not authenticated"})
-    }else{
-        jwt.verify(token, "jwt-token-key", (err, data) => {
-            if(err){
-                console.log(err.message);
-                res.json(err);
+    try{
+        if(token !== cookieToken){
+            return res.status(401).json({message: "You're not authenticated"})
+        }else{
+            jwt.verify(token, "jwt-token-key", (err, data) => {
+                if(err){
+                    console.log(err.message);
+                    res.json(err);
                 return
-            }
-            req.body = data;
-
-            next();
+                }
+                
+                req.body.email = data;
+                
+                next();
+            });
+        }
+    }catch{
+        return res.status(400).json ({
+            message : "Bad request"
         });
     }
 }
 
-router.get('/verifytoken', verifyUser, (req, res)=> {
+router.get('/verifytoken', verifyUser, async (req, res) => {
     res.json({
         message: "You're authenticated",
-        data: req.body 
+        data: req.body.email
     });
 });
 
-//Logout Account
-router.post('/deletetoken', verifyUser, (req, res) => {
-    res.clearCookie('token'); // Menghapus cookie dengan nama 'token'
-    res.status(200).json({
-        message: "Token has been deleted",
-        token: null 
-    });
+// //Logout Account
+// router.post('/deletetoken', verifyUser, (req, res) => {
+//     res.clearCookie('token'); // Menghapus cookie dengan nama 'token'
+//     res.status(200).json({
+//         message: "Token has been deleted",
+//         token: null 
+//     });
 
-})
+// })
 
-//Hapus Account
-router.delete('/deleteaccount/:email', verifyUser, async (req, res) => {
-    try {
-      const { email }= req.params;
-      const user = await User.findOne({
-        where: {
-          email,
-        }
-      });
+// //Hapus Account
+// router.delete('/deleteaccount/:email', verifyUser, async (req, res) => {
+//     try {
+//       const { email }= req.params;
+//       const user = await User.findOne({
+//         where: {
+//           email,
+//         }
+//       });
 
-      res.clearCookie('token');
-      await user.destroy();
+//     //   res.clearCookie('token');
+//       await user.destroy();
       
-      res.status(200).json({
-        message: `Akun dengan email: ${email} telah dihapus`
-      });
-    } catch (error) {
-      res.status(500).json({
-        message: "Terjadi kesalahan saat menghapus akun",
-        error: error.message
-      });
-    }
-});
+//       res.status(200).json({
+//         message: `Akun dengan email: ${email} telah dihapus`
+//       });
+//     } catch (error) {
+//       res.status(500).json({
+//         message: "Terjadi kesalahan saat menghapus akun",
+//         error: error.message
+//       });
+//     }
+// });
 
 module.exports = router;

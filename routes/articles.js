@@ -8,7 +8,10 @@ const v = new validator();
 
 router.get('/', async (req,res) =>{
     const article = await Article.findAll();
-    return res.status(200).json(article);
+    return res.status(200).json({
+        message: 'Get All Article Succesfully',
+        article_list: article
+    });
 })
 
 router.get('/:article_id', async (req,res) =>{

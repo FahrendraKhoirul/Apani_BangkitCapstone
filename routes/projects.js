@@ -12,7 +12,10 @@ router.get('/:email', async (req,res) =>{
     let project = await Project.findAll({   
         where: {email: email}
     });
-    return res.status(200).json(project || {});
+    return res.status(200).json({
+        message: 'Get All Project Succesfully',
+        list_project: project || {}
+    });
 });
 
 router.get('/:email/:projectId', async (req,res) =>{
@@ -41,7 +44,6 @@ router.post('/create', async (req,res) =>{
         description: 'string',
         date: 'string|optional',
         note: 'string',
-        status: 'boolean',
     }
     const validate = v.validate(req.body, schema);
 
@@ -75,7 +77,6 @@ router.put('/:email/:projectId', async (req,res) => {
         description: 'string|optional',
         date: 'string|optional',
         note: 'string|optional',
-        status: 'boolean|optional',
     }
     const validate = v.validate(req.body, schema);
 

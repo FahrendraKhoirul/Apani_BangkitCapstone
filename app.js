@@ -6,7 +6,6 @@ var cors = require('cors')
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-
 var articlesRouter = require('./routes/articles');
 var projectsRouter = require('./routes/projects');
 var usersRouter = require('./routes/users');
@@ -18,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["*"],
     methods: ["POST", "GET"],
     credentials: true
 }))
