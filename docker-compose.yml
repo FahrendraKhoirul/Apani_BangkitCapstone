@@ -1,0 +1,67 @@
+version: "3"
+services:
+  nodeapp:
+    container_name: apani-node
+    build: .
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    depends_on:
+      - mysqldb
+    environment:
+      DB_USERNAME: admin
+      DB_PASSWORD: 'letmein'
+      DB_HOSTNAME: mysqldb
+      DB_NAME: apani_database
+      DB_DIALECT: mysql
+      DB_TIMEZONE: +07:00
+      SERVICE_NAME: nodeapp
+    networks:
+      - apaninet
+    
+  mysqldb:
+    container_name: apani-mysql
+    image: mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_DATABASE: apani_database
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: letmein
+      MYSQL_ROOT_PASSWORD: letmein
+      SERVICE_NAME: mysqldb
+    restart: always
+    command: --bind-address=0.0.0.0
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - apaninet
+  
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: apani-phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    expose:
+      - 8080
+    environment:
+      PMA_HOST: mysqldb
+      PMA_USER: admin
+      PMA_PASSWORD: letmein
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    depends_on:
+      - mysqldb
+    networks:
+      - apaninet
+
+volumes:
+  mysql_data:
+
+networks:
+  apaninet:
+    name: apaninet
